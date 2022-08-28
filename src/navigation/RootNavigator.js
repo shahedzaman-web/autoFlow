@@ -17,7 +17,7 @@ const RootNavigator = () => {
   const dispatch = useDispatch();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const userInfo = useSelector((state) => state.auth.userInfo);
-  console.log({ userInfo });
+
   const AppNavigator = () => {
     const navigation = useNavigation();
     const handleSignOut = () => {

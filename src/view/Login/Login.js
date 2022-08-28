@@ -32,13 +32,12 @@ export default function Login({ navigation }) {
           password,
         };
 
-        const {error,data} = await signinUser(payload);
-        console.log("response==================>",error,data)
+        const { error, data } = await signinUser(payload);
+
         if (data?.payload) {
-        
           navigation.replace("App");
         } else {
-          alert(error?.data.message)
+          alert(error?.data.message);
         }
       } catch (e) {
         alert(e.message);
@@ -64,6 +63,7 @@ export default function Login({ navigation }) {
             }}
             onChangeText={(e) => setEmail(e)}
             value={email}
+            fontSize="md"
             keyboardType="email-address"
             autoCapitalize="none"
             InputLeftElement={
@@ -81,6 +81,7 @@ export default function Login({ navigation }) {
               base: "85%",
               md: "25%",
             }}
+            fontSize="md"
             value={password}
             onChangeText={(e) => setPassword(e)}
             type={show ? "text" : "password"}
@@ -110,15 +111,20 @@ export default function Login({ navigation }) {
           />
         </Stack>
         <Button
+        alignSelf={"center"}
           onPress={handleSignIn}
-          m={spacing[4]}
+          my={spacing[4]}
           variant="unstyled"
           bg={colors.primary}
+          w={{
+              base: "85%",
+              md: "25%",
+            }}
         >
           {isLoading ? (
             <Spinner color={colors.white} />
           ) : (
-            <Text color={colors.white}>Sign In</Text>
+            <Text  fontSize="md" color={colors.white}>Sign In</Text>
           )}
         </Button>
       </ScrollView>

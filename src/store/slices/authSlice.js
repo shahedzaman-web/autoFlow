@@ -22,7 +22,7 @@ export const authSlice = createSlice({
       authApi.endpoints.signinUser.matchFulfilled,
 
       (state, { payload }) => {
-        console.log("signinUser payload===========================>",payload);
+      
         state.userInfo = payload.payload
         state.isAuthenticated = true;
       }

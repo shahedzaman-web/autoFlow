@@ -50,7 +50,7 @@ const TabComponent = () => {
                 alignItems="center"
                 width={"100%"}
                 onPress={() => {
-                  // //console.log(i);
+                
                   setIndex(i);
                 }}
               >

@@ -14,26 +14,25 @@ export default function ProductDetails({ route, navigation }) {
   const dispatch = useDispatch();
   const handleReScan = async () => {
     navigation.navigate("Scan");
-   
   };
 
   const handleAccept = async () => {
     navigation.navigate("Sale");
-    dispatch(storeData({
-        price:data?.price,
-       id: data?._id
-   }))
+    dispatch(
+      storeData({
+        price: data?.price,
+        id: data?._id,
+      })
+    );
   };
   if (isLoading) {
     return <LoadingScreen />;
   }
   return (
     <ScrollView flex={"1"}>
-      <Box p={spacing[2]}>
-        <CarouselCards details={data} />
-      </Box>
-      <Box>
-        <HStack justifyContent={"space-between"} mx={spacing[2]}  mb={spacing[2]} >
+      <Box mx={spacing[2]}>
+      <CarouselCards details={data} />
+        <HStack justifyContent={"space-between"} mb={spacing[2]}>
           <Button
             w={responsive.wp("40%")}
             onPress={handleReScan}
@@ -48,7 +47,7 @@ export default function ProductDetails({ route, navigation }) {
             varient="unstyled"
             bg={colors.primary}
           >
-            <Text color={colors.white}>Accept</Text>
+            <Text color={colors.white}>Sell</Text>
           </Button>
         </HStack>
       </Box>

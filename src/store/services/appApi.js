@@ -26,7 +26,7 @@ export const appApi = createApi({
   endpoints: (builder) => ({
     getProductDetails: builder.query({
       query: (id) => {
-        //console.log({body});
+       
         return {
           url: `/part/${id}`,
           method: "GET",
@@ -35,7 +35,7 @@ export const appApi = createApi({
     }),
     postSale: builder.mutation({
       query: (payload ) => {
-        console.log({payload});
+       
         return {
           url: `/sale/${payload.id}`,
           method: "POST",
@@ -43,6 +43,8 @@ export const appApi = createApi({
           amount:  payload?.amount,
           discount :payload?.discount,
           type: payload?.type,
+          mobileNo: payload?.mobileNo,
+          note: payload?.note,
           }
         };
       },
